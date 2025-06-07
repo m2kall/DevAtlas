@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 终极编程术语词典 - Ultimate Programming Terms Dictionary</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-accent: #fbbf24;
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --glow: rgba(99, 102, 241, 0.4);
+            --glow-secondary: rgba(139, 92, 246, 0.3);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 超炫动态背景 */
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0f23 50%, #000000 100%);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .floating-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            top: 10%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--accent), var(--success));
+            top: 60%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, var(--warning), var(--error));
+            top: 80%;
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* 粒子系统 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: particleMove 15s linear infinite;
+        }
+
+        @keyframes particleMove {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* 主容器 */
+        .app-container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* 主要内容区域 */
+        .main-content {
+            padding-top: 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        /* 英雄区域 */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); }
+            100% { filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.6)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .stat-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* 搜索和控制区域 */
+        .controls-section {
+            margin-bottom: 3rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.5rem 2rem 1.5rem 4rem;
+            font-size: 1.1rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--glow);
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--primary);
+        }
+
+        /* 过滤器 */
+        .filters-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* 术语卡片网格 */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* 炫酷术语卡片 */
+        .term-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardFadeIn 0.6s ease-out forwards;
+        }
+
+        .term-card:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        .term-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .term-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .term-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .term-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .term-card:hover::after {
+            opacity: 1;
+        }
+
+        .term-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(99, 102, 241, 0.2),
+                0 0 50px rgba(99, 102, 241, 0.1);
+            background: var(--bg-card-hover);
+        }
+
+        .term-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .term-title-section {
+            flex: 1;
+        }
+
+        .term-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .term-chinese {
+            font-size: 1.1rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .term-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty-beginner {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .difficulty-intermediate {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .difficulty-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .tag {
+            padding: 0.3rem 0.6rem;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .term-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .code-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .code-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.3rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .copy-btn:hover {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .code-content {
+            padding: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--success);
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+
+        .use-cases {
+            margin-top: 1rem;
+        }
+
+        .use-cases-title {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-cases-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .use-case {
+            padding: 0.3rem 0.8rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* 加载更多按钮 */
+        .load-more {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .load-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .load-more-btn:hover::before {
+            left: 100%;
+        }
+
+        .load-more-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* 固定统计面板 */
+        .floating-stats {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+        }
+
+        .floating-stats h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .stat-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .floating-stats {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                margin: 2rem auto;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 100px;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .terms-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .term-card {
+                padding: 1.5rem;
+            }
+            
+            .filters-container {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .search-input {
+                padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+                font-size: 1rem;
+            }
+            
+            .search-icon {
+                left: 1.2rem;
+            }
+        }
+
+        /* 特殊效果 */
+        .glitch {
+            position: relative;
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: var(--error);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: var(--accent);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0%, 14%, 15%, 49%, 50%, 99%, 100% {
+                transform: translate(0);
+            }
+            15%, 49% {
+                transform: translate(-2px, 2px);
+            }
+        }
+
+        @keyframes glitch-2 {
+            0%, 20%, 21%, 62%, 63%, 99%, 100% {
+                transform: translate(0);
+            }
+            21%, 62% {
+                transform: translate(2px, -2px);
+            }
+        }
+
+        /* 鼠标跟随效果 */
+        .cursor-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            opacity: 0.5;
+            mix-blend-mode: difference;
+        }
+
+        /* 滚动指示器 */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            z-index: 1001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- 动态背景 -->
+    <div class="cosmic-background"></div>
+    <div class="stars" id="stars"></div>
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- 鼠标跟随器 -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>编程词典</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">首页</a>
+                <a href="#categories" class="nav-link">分类</a>
+                <a href="#stats" class="nav-link">统计</a>
+                <a href="#about" class="nav-link">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主应用容器 -->
+    <div class="app-container">
+        <main class="main-content">
+            <!-- 英雄区域 -->
+            <section class="hero-section">
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="终极编程术语词典">终极编程术语词典</span>
+                </h1>
+                <p class="hero-subtitle">
+                    探索编程世界的核心概念，掌握现代开发技术栈。包含JavaScript、React、Node.js、数据库、算法等全栈开发必备术语，
+                    配备详细解释、代码示例和实际应用场景。
+                </p>
+                
+                <div class="hero-stats" id="heroStats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTermsCount">0</span>
+                        <span class="stat-label">编程术语</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="categoriesCount">0</span>
+                        <span class="stat-label">技术分类</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="examplesCount">0</span>
+                        <span class="stat-label">代码示例</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="difficultyLevels">3</span>
+                        <span class="stat-label">难度等级</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 搜索和控制区域 -->
+            <section class="controls-section">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="搜索编程术语、中文释义或技术概念..."
+                    >
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <div class="filters-container">
+                    <div class="filter-group" id="categoryFilters">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-globe"></i> 全部
+                        </button>
+                        <button class="filter-btn" data-difficulty="advanced">
+                            <i class="fas fa-rocket"></i> 高级
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 加载状态 -->
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>正在加载编程术语数据...</p>
+            </div>
+
+            <!-- 术语网格 -->
+            <section class="terms-grid" id="termsGrid"></section>
+
+            <!-- 空状态 -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🔍</div>
+                <h3>未找到匹配的术语</h3>
+                <p>尝试使用其他关键词搜索，或选择不同的分类和难度</p>
+            </div>
+
+            <!-- 加载更多 -->
+            <div class="load-more" id="loadMoreSection" style="display: none;">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i> 加载更多术语
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 浮动统计面板 -->
+    <div class="floating-stats" id="floatingStats">
+        <h3><i class="fas fa-chart-bar"></i> 实时统计</h3>
+        <div class="stat-row">
+            <span class="stat-label">当前显示:</span>
+            <span class="stat-value" id="currentCount">0</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">总计术语:</span>
+            <span class="stat-value" id="totalCount">0</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">当前分类:</span>
+            <span class="stat-value" id="currentCategory">全部</span>
+        </div>
+        <div class="stat-row">
+            <span class="stat-label">难度等级:</span>
+            <span class="stat-value" id="currentDifficulty">全部</span>
+        </div>
+    </div>
+
+    <script>
+        class UltimateProgrammingDictionary {
+            constructor() {
+                this.terms = [];
+                this.filteredTerms = [];
+                this.categories = [];
+                this.currentPage = 0;
+                this.pageSize = 12;
+                this.currentCategory = 'all';
+                this.currentDifficulty = 'all';
+                this.searchQuery = '';
+                this.isLoading = false;
+                this.hasMore = true;
+                this.stats = {};
+                
+                this.init();
+            }
+
+            async init() {
+                this.setupEventListeners();
+                this.createVisualEffects();
+                await this.loadInitialData();
+                this.hideLoading();
+            }
+
+            setupEventListeners() {
+                // 搜索功能
+                const searchInput = document.getElementById('searchInput');
+                let searchTimeout;
+                searchInput.addEventListener('input', (e) => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        this.searchQuery = e.target.value.toLowerCase();
+                        this.resetAndFilter();
+                    }, 300);
+                });
+
+                // 分类过滤
+                document.getElementById('categoryFilters').addEventListener('click', (e) => {
+                    if (e.target.closest('.filter-btn')) {
+                        const btn = e.target.closest('.filter-btn');
+                        this.setActiveFilter('categoryFilters', btn);
+                        this.currentCategory = btn.dataset.category;
+                        this.updateCurrentCategory();
+                        this.resetAndFilter();
+                    }
+                });
+
+                // 难度过滤
+                document.getElementById('difficultyFilters').addEventListener('click', (e) => {
+                    if (e.target.closest('.filter-btn')) {
+                        const btn = e.target.closest('.filter-btn');
+                        this.setActiveFilter('difficultyFilters', btn);
+                        this.currentDifficulty = btn.dataset.difficulty;
+                        this.updateCurrentDifficulty();
+                        this.resetAndFilter();
+                    }
+                });
+
+                // 加载更多
+                document.getElementById('loadMoreBtn').addEventListener('click', () => {
+                    this.loadMoreTerms();
+                });
+
+                // 滚动效果
+                window.addEventListener('scroll', () => {
+                    this.updateScrollProgress();
+                    this.updateNavbar();
+                });
+
+                // 鼠标跟随效果
+                document.addEventListener('mousemove', (e) => {
+                    this.updateCursorFollower(e);
+                });
+
+                // 卡片鼠标效果
+                document.addEventListener('mousemove', (e) => {
+                    if (e.target.closest('.term-card')) {
+                        this.updateCardMouseEffect(e);
+                    }
+                });
+            }
+
+            async loadInitialData() {
+                try {
+                    // 加载统计信息
+                    const statsResponse = await fetch('/api/stats');
+                    this.stats = await statsResponse.json();
+                    this.updateHeroStats();
+
+                    // 加载分类
+                    const categoriesResponse = await fetch('/api/categories');
+                    this.categories = await categoriesResponse.json();
+                    this.renderCategoryFilters();
+
+                    // 加载初始术语
+                    await this.loadTerms();
+                } catch (error) {
+                    console.error('Failed to load initial data:', error);
+                    this.showError('加载数据失败，请刷新页面重试');
+                }
+            }
+
+            async loadTerms(reset = false) {
+                if (this.isLoading) return;
+                
+                this.isLoading = true;
+                this.showLoadingButton();
+
+                try {
+                    const params = new URLSearchParams({
+                        category: this.currentCategory,
+                        difficulty: this.currentDifficulty,
+                        search: this.searchQuery,
+                        limit: this.pageSize,
+                        offset: reset ? 0 : this.currentPage * this.pageSize
+                    });
+
+                    const response = await fetch(`/api/terms?${params}`);
+                    const data = await response.json();
+
+                    if (reset) {
+                        this.terms = data.terms;
+                        this.currentPage = 0;
+                    } else {
+                        this.terms = [...this.terms, ...data.terms];
+                    }
+
+                    this.hasMore = data.hasMore;
+                    this.renderTerms(reset);
+                    this.updateStats(data.total);
+                    this.toggleEmptyState();
+                    this.toggleLoadMoreButton();
+
+                } catch (error) {
+                    console.error('Failed to load terms:', error);
+                    this.showError('加载术语失败');
+                } finally {
+                    this.isLoading = false;
+                    this.hideLoadingButton();
+                }
+            }
+
+            async resetAndFilter() {
+                this.currentPage = 0;
+                await this.loadTerms(true);
+            }
+
+            async loadMoreTerms() {
+                this.currentPage++;
+                await this.loadTerms();
+            }
+
+            renderCategoryFilters() {
+                const container = document.getElementById('categoryFilters');
+                
+                this.categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.className = 'filter-btn';
+                    button.dataset.category = category.id;
+                    button.innerHTML = `
+                        <i class="fas fa-${this.getCategoryIcon(category.id)}"></i>
+                        ${category.displayName}
+                        <span style="opacity: 0.7; font-size: 0.8em;">(${category.count})</span>
+                    `;
+                    container.appendChild(button);
+                });
+            }
+
+            getCategoryIcon(category) {
+                const icons = {
+                    javascript: 'js-square',
+                    react: 'react',
+                    nodejs: 'node-js',
+                    database: 'database',
+                    css: 'css3-alt',
+                    algorithms: 'project-diagram',
+                    security: 'shield-alt',
+                    emerging: 'rocket'
+                };
+                return icons[category] || 'code';
+            }
+
+            renderTerms(reset = false) {
+                const grid = document.getElementById('termsGrid');
+                
+                if (reset) {
+                    grid.innerHTML = '';
+                }
+
+                this.terms.slice(reset ? 0 : -this.pageSize).forEach((term, index) => {
+                    const card = this.createTermCard(term);
+                    card.style.animationDelay = (index * 0.1) + 's';
+                    grid.appendChild(card);
+                });
+            }
+
+            createTermCard(term) {
+                const card = document.createElement('div');
+                card.className = 'term-card';
+                card.dataset.termId = term.id;
+                
+                card.innerHTML = `
+                    <div class="term-header">
+                        <div class="term-title-section">
+                            <div class="term-name">${term.name}</div>
+                            <div class="term-chinese">${term.chinese}</div>
+                            <div class="term-meta">
+                                <span class="difficulty-badge difficulty-${term.difficulty}">
+                                    ${this.getDifficultyText(term.difficulty)}
+                                </span>
+                                ${term.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="term-description">${term.description}</div>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <span class="code-title">
+                                <i class="fas fa-code"></i> 代码示例
+                            </span>
+                            <button class="copy-btn" onclick="this.copyCode('${term.id}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="code-content" id="code-${term.id}">${this.highlightCode(term.example)}</div>
+                    </div>
+                    
+                    ${term.useCases ? `
+                        <div class="use-cases">
+                            <div class="use-cases-title">
+                                <i class="fas fa-lightbulb"></i> 应用场景
+                            </div>
+                            <div class="use-cases-list">
+                                ${term.useCases.map(useCase => `<span class="use-case">${useCase}</span>`).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                `;
+
+                // 添加点击事件
+                card.addEventListener('click', () => {
+                    this.showTermDetails(term);
+                });
+
+                return card;
+            }
+
+            highlightCode(code) {
+                // 简单的语法高亮
+                return code
+                    .replace(/\/\/.*$/gm, '<span style="color: #6b7280;">$&</span>')
+                    .replace(/\b(function|const|let|var|if|else|for|while|return|class|import|export|async|await)\b/g, '<span style="color: #8b5cf6;">$1</span>')
+                    .replace(/\b(true|false|null|undefined)\b/g, '<span style="color: #f59e0b;">$1</span>')
+                    .replace(/'([^']*)'/g, '<span style="color: #10b981;">\'$1\'</span>')
+                    .replace(/"([^"]*)"/g, '<span style="color: #10b981;">"$1"</span>')
+                    .replace(/\b\d+\b/g, '<span style="color: #06b6d4;">$&</span>');
+            }
+
+            getDifficultyText(difficulty) {
+                const texts = {
+                    beginner: '初级',
+                    intermediate: '中级',
+                    advanced: '高级'
+                };
+                return texts[difficulty] || difficulty;
+            }
+
+            copyCode(termId) {
+                const codeElement = document.getElementById(`code-${termId}`);
+                const text = codeElement.textContent;
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showNotification('代码已复制到剪贴板！', 'success');
+                }).catch(() => {
+                    this.showNotification('复制失败，请手动选择复制', 'error');
+                });
+            }
+
+            showTermDetails(term) {
+                // 创建模态框显示详细信息
+                const modal = document.createElement('div');
+                modal.className = 'modal-overlay';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>${term.name} - ${term.chinese}</h2>
+                            <button class="modal-close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>${term.description}</p>
+                            <div class="code-section">
+                                <div class="code-header">
+                                    <span class="code-title">详细示例</span>
+                                </div>
+                                <div class="code-content">${this.highlightCode(term.example)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // 关闭模态框
+                modal.querySelector('.modal-close').addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                });
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                    }
+                });
+            }
+
+            setActiveFilter(containerId, activeBtn) {
+                const container = document.getElementById(containerId);
+                container.querySelectorAll('.filter-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                activeBtn.classList.add('active');
+            }
+
+            updateHeroStats() {
+                document.getElementById('totalTermsCount').textContent = this.stats.totalTerms || 0;
+                document.getElementById('categoriesCount').textContent = this.stats.categories || 0;
+                document.getElementById('examplesCount').textContent = this.stats.totalTerms || 0;
+                
+                // 数字动画效果
+                this.animateNumbers();
+            }
+
+            animateNumbers() {
+                const counters = document.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent);
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                });
+            }
+
+            updateStats(total) {
+                document.getElementById('currentCount').textContent = this.terms.length;
+                document.getElementById('totalCount').textContent = total;
+            }
+
+            updateCurrentCategory() {
+                const categoryName = this.currentCategory === 'all' ? '全部' : 
+                    this.categories.find(c => c.id === this.currentCategory)?.displayName || this.currentCategory;
+                document.getElementById('currentCategory').textContent = categoryName;
+            }
+
+            updateCurrentDifficulty() {
+                const difficultyName = this.currentDifficulty === 'all' ? '全部' : 
+                    this.getDifficultyText(this.currentDifficulty);
+                document.getElementById('currentDifficulty').textContent = difficultyName;
+            }
+
+            toggleEmptyState() {
+                const emptyState = document.getElementById('emptyState');
+                const termsGrid = document.getElementById('termsGrid');
+                
+                if (this.terms.length === 0) {
+                    emptyState.style.display = 'block';
+                    termsGrid.style.display = 'none';
+                } else {
+                    emptyState.style.display = 'none';
+                    termsGrid.style.display = 'grid';
+                }
+            }
+
+            toggleLoadMoreButton() {
+                const loadMoreSection = document.getElementById('loadMoreSection');
+                loadMoreSection.style.display = this.hasMore && this.terms.length > 0 ? 'block' : 'none';
+            }
+
+            showLoadingButton() {
+                const btn = document.getElementById('loadMoreBtn');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 加载中...';
+                btn.disabled = true;
+            }
+
+            hideLoadingButton() {
+                const btn = document.getElementById('loadMoreBtn');
+                btn.innerHTML = '<i class="fas fa-plus"></i> 加载更多术语';
+                btn.disabled = false;
+            }
+
+            hideLoading() {
+                document.getElementById('loading').style.display = 'none';
+            }
+
+            showError(message) {
+                this.showNotification(message, 'error');
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation-triangle' : 'info'}"></i>
+                    ${message}
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        if (document.body.contains(notification)) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 3000);
+            }
+
+            // 视觉效果
+            createVisualEffects() {
+                this.createStars();
+                this.createParticles();
+            }
+
+            createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 100; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 3 + 's';
+                    star.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                setInterval(() => {
+                    if (particlesContainer.children.length < 20) {
+                        const particle = document.createElement('div');
+                        particle.className = 'particle';
+                        particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                        particlesContainer.appendChild(particle);
+                        
+                        setTimeout(() => {
+                            if (particlesContainer.contains(particle)) {
+                                particlesContainer.removeChild(particle);
+                            }
+                        }, 15000);
+                    }
+                }, 2000);
+            }
+
+            updateScrollProgress() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+            }
+
+            updateNavbar() {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+
+            updateCursorFollower(e) {
+                const follower = document.getElementById('cursorFollower');
+                follower.style.left = e.clientX - 10 + 'px';
+                follower.style.top = e.clientY - 10 + 'px';
+            }
+
+            updateCardMouseEffect(e) {
+                const card = e.target.closest('.term-card');
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            }
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            new UltimateProgrammingDictionary();
+        });
+
+        // 全局函数
+        window.copyCode = function(termId) {
+            const app = window.programmingDictionary;
+            if (app) {
+                app.copyCode(termId);
+            }
+        };
+    </script>
+
+    <!-- 通知样式 -->
+    <style>
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            backdrop-filter: blur(20px);
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-success {
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .notification-error {
+            border-color: var(--error);
+            color: var(--error);
+        }
+
+        .notification-info {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* 模态框样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            margin: 2rem;
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-card);
+            color: var(--primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+    </style>
+</body>
+</html>

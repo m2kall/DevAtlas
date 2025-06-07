@@ -1,0 +1,49 @@
+{
+    "name": "ultimate-programming-terms-dictionary",
+    "version": "2.0.0",
+    "description": "🚀 终极编程术语词典 - 带有超炫动画效果的现代化学习平台",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "nodemon server.js",
+      "build": "echo 'Building project...'",
+      "test": "echo 'Testing...'",
+      "lint": "echo 'Linting code...'"
+    },
+    "keywords": [
+      "programming",
+      "terms",
+      "dictionary",
+      "javascript",
+      "nodejs",
+      "frontend",
+      "backend",
+      "animation",
+      "modern"
+    ],
+    "author": "Developer",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.18.2",
+      "cors": "^2.8.5",
+      "helmet": "^7.1.0",
+      "morgan": "^1.10.0",
+      "compression": "^1.7.4",
+      "express-rate-limit": "^6.7.0"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.2"
+    },
+    "engines": {
+      "node": ">=16.0.0",
+      "npm": ">=8.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/username/ultimate-programming-terms-dictionary.git"
+    },
+    "bugs": {
+      "url": "https://github.com/username/ultimate-programming-terms-dictionary/issues"
+    },
+    "homepage": "https://github.com/username/ultimate-programming-terms-dictionary#readme"
+  }
