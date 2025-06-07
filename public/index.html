@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚀 终极编程术语词典 - Ultimate Programming Terms Dictionary</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -92,6 +94,12 @@
             border-radius: 50%;
             filter: blur(40px);
             animation: float 8s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .orb.loaded {
+            opacity: 1;
         }
 
         .orb:nth-child(1) {
@@ -774,6 +782,314 @@
             font-weight: 600;
         }
 
+        /* 页面内容样式 */
+        .page-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 分类页面样式 */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(99, 102, 241, 0.2),
+                0 0 50px rgba(99, 102, 241, 0.1);
+            background: var(--bg-card-hover);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .category-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-count {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .category-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-stat {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .category-stat-number {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .category-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .category-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        /* 统计页面样式 */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stats-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+
+        .stats-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .stats-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stats-chart {
+            height: 200px;
+            display: flex;
+            align-items: end;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--primary), var(--secondary));
+            border-radius: 4px 4px 0 0;
+            min-height: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .stats-bar:hover {
+            transform: scaleY(1.1);
+            filter: brightness(1.2);
+        }
+
+        .stats-bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .stats-bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* 关于页面样式 */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .about-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .about-section ul {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1.5rem;
+        }
+
+        .about-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
         /* 响应式设计 */
         @media (max-width: 1200px) {
             .floating-stats {
@@ -954,10 +1270,9 @@
                 <span>编程词典</span>
             </div>
             <div class="nav-links">
-                <a href="#home" class="nav-link">首页</a>
-                <a href="#categories" class="nav-link">分类</a>
-                <a href="#stats" class="nav-link">统计</a>
-                <a href="#about" class="nav-link">关于</a>
+                <a href="#home" class="nav-link" data-page="home">首页</a>
+                <a href="#categories" class="nav-link" data-page="categories">分类</a>
+                <a href="#about" class="nav-link" data-page="about">关于</a>
             </div>
         </div>
     </nav>
@@ -965,105 +1280,113 @@
     <!-- 主应用容器 -->
     <div class="app-container">
         <main class="main-content">
-            <!-- 英雄区域 -->
-            <section class="hero-section">
-                <h1 class="hero-title">
-                    <span class="glitch" data-text="终极编程术语词典">终极编程术语词典</span>
-                </h1>
-                <p class="hero-subtitle">
-                    探索编程世界的核心概念，掌握现代开发技术栈。包含JavaScript、React、Node.js、数据库、算法等全栈开发必备术语，
-                    配备详细解释、代码示例和实际应用场景。
-                </p>
-                
-                <div class="hero-stats" id="heroStats">
-                    <div class="stat-item">
-                        <span class="stat-number" id="totalTermsCount">0</span>
-                        <span class="stat-label">编程术语</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="categoriesCount">0</span>
-                        <span class="stat-label">技术分类</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="examplesCount">0</span>
-                        <span class="stat-label">代码示例</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="difficultyLevels">3</span>
-                        <span class="stat-label">难度等级</span>
-                    </div>
-                </div>
-            </section>
+            <!-- 首页内容 -->
+            <div id="homePage" class="page-content">
+                <!-- 英雄区域 -->
+                <section class="hero-section">
+                    <p class="hero-subtitle">
+                        探索编程世界的核心概念，掌握现代开发技术栈。包含JavaScript、React、Node.js、数据库、算法等全栈开发必备术语，
+                        配备详细解释、代码示例和实际应用场景。
+                    </p>
 
-            <!-- 搜索和控制区域 -->
-            <section class="controls-section">
-                <div class="search-container">
-                    <input 
-                        type="text" 
-                        class="search-input" 
-                        id="searchInput" 
-                        placeholder="搜索编程术语、中文释义或技术概念..."
-                    >
-                    <i class="fas fa-search search-icon"></i>
-                </div>
-
-                <div class="filters-container">
-                    <div class="filter-group" id="categoryFilters">
-                        <button class="filter-btn active" data-category="all">
-                            <i class="fas fa-globe"></i> 全部
-                        </button>
-                        <button class="filter-btn" data-difficulty="advanced">
-                            <i class="fas fa-rocket"></i> 高级
-                        </button>
+                    <div class="hero-stats" id="heroStats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalTermsCount">0</span>
+                            <span class="stat-label">编程术语</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="categoriesCount">0</span>
+                            <span class="stat-label">技术分类</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="examplesCount">0</span>
+                            <span class="stat-label">代码示例</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="difficultyLevels">3</span>
+                            <span class="stat-label">难度等级</span>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- 加载状态 -->
-            <div class="loading" id="loading">
-                <div class="loading-spinner"></div>
-                <p>正在加载编程术语数据...</p>
+                <!-- 搜索和控制区域 -->
+                <section class="controls-section">
+                    <div class="search-container">
+                        <input
+                            type="text"
+                            class="search-input"
+                            id="searchInput"
+                            placeholder="搜索编程术语、中文释义或技术概念..."
+                        >
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+
+                    <div class="filters-container">
+                        <div class="filter-group" id="categoryFilters">
+                            <button class="filter-btn active" data-category="all">
+                                <i class="fas fa-globe"></i> 全部
+                            </button>
+                        </div>
+                        <div class="filter-group" id="difficultyFilters">
+                            <button class="filter-btn active" data-difficulty="all">
+                                <i class="fas fa-layer-group"></i> 全部难度
+                            </button>
+                            <button class="filter-btn" data-difficulty="beginner">
+                                <i class="fas fa-seedling"></i> 初级
+                            </button>
+                            <button class="filter-btn" data-difficulty="intermediate">
+                                <i class="fas fa-chart-line"></i> 中级
+                            </button>
+                            <button class="filter-btn" data-difficulty="advanced">
+                                <i class="fas fa-rocket"></i> 高级
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 加载状态 -->
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                    <p>正在加载编程术语数据...</p>
+                </div>
+
+                <!-- 术语网格 -->
+                <section class="terms-grid" id="termsGrid"></section>
+
+                <!-- 空状态 -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">🔍</div>
+                    <h3>未找到匹配的术语</h3>
+                    <p>尝试使用其他关键词搜索，或选择不同的分类和难度</p>
+                </div>
+
+                <!-- 加载更多 -->
+                <div class="load-more" id="loadMoreSection" style="display: none;">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i> 加载更多术语
+                    </button>
+                </div>
             </div>
 
-            <!-- 术语网格 -->
-            <section class="terms-grid" id="termsGrid"></section>
-
-            <!-- 空状态 -->
-            <div class="empty-state" id="emptyState" style="display: none;">
-                <div class="empty-icon">🔍</div>
-                <h3>未找到匹配的术语</h3>
-                <p>尝试使用其他关键词搜索，或选择不同的分类和难度</p>
+            <!-- 分类页面 -->
+            <div id="categoriesPage" class="page-content" style="display: none;">
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- 分类卡片将在这里动态生成 -->
+                </div>
             </div>
 
-            <!-- 加载更多 -->
-            <div class="load-more" id="loadMoreSection" style="display: none;">
-                <button class="load-more-btn" id="loadMoreBtn">
-                    <i class="fas fa-plus"></i> 加载更多术语
-                </button>
+
+
+            <!-- 关于页面 -->
+            <div id="aboutPage" class="page-content" style="display: none;">
+                <div class="about-content" id="aboutContent">
+                    <!-- 关于内容将在这里动态生成 -->
+                </div>
             </div>
         </main>
     </div>
 
-    <!-- 浮动统计面板 -->
-    <div class="floating-stats" id="floatingStats">
-        <h3><i class="fas fa-chart-bar"></i> 实时统计</h3>
-        <div class="stat-row">
-            <span class="stat-label">当前显示:</span>
-            <span class="stat-value" id="currentCount">0</span>
-        </div>
-        <div class="stat-row">
-            <span class="stat-label">总计术语:</span>
-            <span class="stat-value" id="totalCount">0</span>
-        </div>
-        <div class="stat-row">
-            <span class="stat-label">当前分类:</span>
-            <span class="stat-value" id="currentCategory">全部</span>
-        </div>
-        <div class="stat-row">
-            <span class="stat-label">难度等级:</span>
-            <span class="stat-value" id="currentDifficulty">全部</span>
-        </div>
-    </div>
+
 
     <script>
         class UltimateProgrammingDictionary {
@@ -1079,7 +1402,8 @@
                 this.isLoading = false;
                 this.hasMore = true;
                 this.stats = {};
-                
+                this.currentPageName = 'home';
+
                 this.init();
             }
 
@@ -1091,6 +1415,15 @@
             }
 
             setupEventListeners() {
+                // 页面导航
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = e.target.dataset.page;
+                        this.navigateToPage(page);
+                    });
+                });
+
                 // 搜索功能
                 const searchInput = document.getElementById('searchInput');
                 let searchTimeout;
@@ -1168,9 +1501,210 @@
                 }
             }
 
+            // 页面导航
+            navigateToPage(pageName) {
+                // 更新导航链接状态
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.page === pageName) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // 隐藏所有页面
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.style.display = 'none';
+                });
+
+                // 显示目标页面
+                const targetPage = document.getElementById(pageName + 'Page');
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    this.currentPageName = pageName;
+
+                    // 根据页面类型加载相应内容
+                    switch (pageName) {
+                        case 'categories':
+                            this.renderCategoriesPage();
+                            break;
+
+                        case 'about':
+                            this.renderAboutPage();
+                            break;
+                    }
+                }
+
+                // 更新URL
+                window.history.pushState({ page: pageName }, '', `#${pageName}`);
+            }
+
+            // 渲染分类页面
+            async renderCategoriesPage() {
+                const grid = document.getElementById('categoriesGrid');
+                grid.innerHTML = '';
+
+                this.categories.forEach(category => {
+                    const card = this.createCategoryCard(category);
+                    grid.appendChild(card);
+                });
+            }
+
+            createCategoryCard(category) {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+
+                const descriptions = {
+                    javascript: 'JavaScript语言核心概念，包括闭包、原型、异步编程、DOM操作、数组方法等基础知识',
+                    react: 'React框架生态系统，涵盖组件、状态管理、Hooks、Next.js等现代开发技术',
+                    nodejs: 'Node.js后端开发技术，包括中间件、流处理、事件驱动编程等服务器端技术',
+                    database: '数据库技术栈，涵盖SQL、NoSQL、ORM等数据存储解决方案',
+                    css: 'CSS样式技术，包括布局、动画、响应式设计等前端样式技术',
+                    algorithms: '算法与数据结构，计算机科学基础，提升编程思维和解决问题能力',
+                    security: 'Web安全技术，包括XSS、CSRF防护、身份验证等安全编程实践',
+                    emerging: '新兴技术趋势，包括MCP、边缘计算、WebAssembly等前沿技术',
+                    devtools: '开发工具链，包括构建工具、包管理器、调试工具等开发效率工具',
+                    testing: '测试与质量保证，包括单元测试、集成测试、TDD等质量保证方法',
+                    typescript: 'TypeScript静态类型系统，提供类型安全和更好的开发体验',
+                    performance: '性能优化技术，包括代码优化、缓存策略、性能监控等',
+                    python: 'Python编程语言，涵盖语法、库、框架等Python生态系统',
+                    mobile: '移动开发技术，包括React Native、Flutter等跨平台开发',
+                    cloud: '云计算技术，包括AWS、Azure、容器化等云服务',
+                    devops: 'DevOps部署技术，包括CI/CD、容器化、自动化部署等',
+                    datascience: '数据科学技术，包括机器学习、数据分析、可视化等',
+                    java: 'Java编程语言，涵盖语法、框架、企业级开发等',
+                    blockchain: '区块链技术，包括智能合约、加密货币、分布式账本等',
+                    gamedev: '游戏开发技术，包括游戏引擎、图形编程、游戏设计等',
+                    cybersecurity: '网络安全技术，包括渗透测试、安全审计、防护策略等',
+                    fundamentals: '编程基础概念，包括变量、函数、循环、面向对象等核心知识',
+                    datastructures: '数据结构技术，包括栈、队列、树、图等数据组织方式',
+                    softwareengineering: '软件工程方法，包括设计模式、架构设计、项目管理等',
+                    networking: '网络编程技术，包括HTTP、WebSocket、网络协议等',
+                    operatingsystems: '操作系统原理，包括进程管理、内存管理、文件系统等',
+                    compilers: '编译原理技术，包括词法分析、语法分析、代码生成等',
+                    html: 'HTML基础技术，包括标签、属性、语义化、表单等网页结构'
+                };
+
+                card.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="${this.getCategoryIcon(category.id)}"></i>
+                        </div>
+                        <div class="category-info">
+                            <h3>${category.displayName}</h3>
+                            <div class="category-count">${category.count} 个术语</div>
+                        </div>
+                    </div>
+
+                    <div class="category-description">
+                        ${descriptions[category.id] || '探索这个技术领域的核心概念和实践方法'}
+                    </div>
+
+                    <div class="category-stats">
+                        <div class="category-stat">
+                            <span class="category-stat-number">${category.count}</span>
+                            <span class="category-stat-label">术语总数</span>
+                        </div>
+                        <div class="category-stat">
+                            <span class="category-stat-number">${Math.floor(category.count * 0.8)}</span>
+                            <span class="category-stat-label">代码示例</span>
+                        </div>
+                        <div class="category-stat">
+                            <span class="category-stat-number">${Math.floor(category.count * 0.6)}</span>
+                            <span class="category-stat-label">应用场景</span>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    this.navigateToPage('home');
+                    setTimeout(() => {
+                        // 设置分类过滤器
+                        const categoryBtn = document.querySelector(`[data-category="${category.id}"]`);
+                        if (categoryBtn) {
+                            categoryBtn.click();
+                        }
+                    }, 100);
+                });
+
+                return card;
+            }
+
+
+
+            // 渲染关于页面
+            renderAboutPage() {
+                const content = document.getElementById('aboutContent');
+                content.innerHTML = `
+                    <div class="about-section">
+                        <h2><i class="fas fa-rocket"></i> 项目简介</h2>
+                        <p>终极编程术语词典是一个现代化的编程学习平台，旨在帮助开发者系统性地学习和掌握编程领域的核心概念。</p>
+                        <p>我们精心收集了超过500个编程术语，涵盖前端、后端、数据库、算法、安全等各个技术领域，每个术语都配备了详细的中英文解释、实用的代码示例和真实的应用场景。</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i class="fas fa-star"></i> 核心特性</h2>
+                        <ul>
+                            <li><strong>全面覆盖</strong>：涵盖JavaScript、React、Node.js、数据库、算法等10大技术领域</li>
+                            <li><strong>深度解析</strong>：每个术语都有详细的中英文解释和实际代码示例</li>
+                            <li><strong>智能搜索</strong>：支持中英文搜索，快速定位所需术语</li>
+                            <li><strong>分类浏览</strong>：按技术领域和难度等级组织，便于系统学习</li>
+                            <li><strong>现代设计</strong>：采用现代化UI设计，提供优秀的用户体验</li>
+                            <li><strong>响应式布局</strong>：完美适配桌面端和移动端设备</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i class="fas fa-code"></i> 技术栈</h2>
+                        <p>本项目采用现代化的技术栈构建，确保高性能和良好的用户体验：</p>
+                        <div class="tech-stack">
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-js-square"></i></div>
+                                <div class="tech-name">JavaScript ES6+</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                                <div class="tech-name">Node.js & Express</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                                <div class="tech-name">CSS3 & Grid/Flexbox</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <div class="tech-name">RESTful API</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i class="fas fa-users"></i> 适用人群</h2>
+                        <ul>
+                            <li><strong>编程初学者</strong>：系统学习编程基础概念，建立扎实的理论基础</li>
+                            <li><strong>在校学生</strong>：复习和巩固计算机科学课程内容</li>
+                            <li><strong>职场开发者</strong>：快速查阅技术术语，提升工作效率</li>
+                            <li><strong>技术面试者</strong>：准备技术面试，掌握常见技术概念</li>
+                            <li><strong>技术写作者</strong>：确保技术文档的准确性和专业性</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i class="fas fa-heart"></i> 开源贡献</h2>
+                        <p>本项目采用MIT开源协议，欢迎社区贡献者参与项目建设：</p>
+                        <ul>
+                            <li>提交新的编程术语和解释</li>
+                            <li>改进现有术语的描述和示例</li>
+                            <li>报告bug和提出改进建议</li>
+                            <li>翻译和本地化支持</li>
+                            <li>UI/UX设计优化</li>
+                        </ul>
+                        <p>让我们一起打造最好的编程学习资源！</p>
+                    </div>
+                `;
+            }
+
             async loadTerms(reset = false) {
                 if (this.isLoading) return;
-                
+
                 this.isLoading = true;
                 this.showLoadingButton();
 
@@ -1236,16 +1770,36 @@
 
             getCategoryIcon(category) {
                 const icons = {
-                    javascript: 'js-square',
-                    react: 'react',
-                    nodejs: 'node-js',
-                    database: 'database',
-                    css: 'css3-alt',
-                    algorithms: 'project-diagram',
-                    security: 'shield-alt',
-                    emerging: 'rocket'
+                    javascript: 'fas fa-code',             // JavaScript代码图标
+                    react: 'fas fa-atom',                  // React原子图标
+                    nodejs: 'fas fa-server',               // Node.js服务器图标
+                    database: 'fas fa-database',           // 数据库图标
+                    css: 'fas fa-paint-brush',             // CSS画笔图标
+                    algorithms: 'fas fa-sitemap',          // 算法结构图
+                    security: 'fas fa-shield-alt',         // 安全盾牌
+                    emerging: 'fas fa-rocket',             // 新兴技术火箭
+                    devtools: 'fas fa-tools',              // 开发工具
+                    testing: 'fas fa-flask',               // 测试烧杯
+                    typescript: 'fas fa-file-code',        // TypeScript文件代码图标
+                    performance: 'fas fa-tachometer-alt',  // 性能仪表盘
+                    python: 'fas fa-snake',                // Python蛇图标
+                    mobile: 'fas fa-mobile-alt',           // 移动设备
+                    cloud: 'fas fa-cloud',                 // 云计算
+                    devops: 'fas fa-cogs',                 // DevOps齿轮
+                    datascience: 'fas fa-chart-line',      // 数据科学图表
+                    java: 'fas fa-coffee',                 // Java咖啡图标
+                    blockchain: 'fas fa-cubes',            // 区块链方块
+                    gamedev: 'fas fa-gamepad',             // 游戏开发手柄
+                    cybersecurity: 'fas fa-user-secret',   // 网络安全
+                    fundamentals: 'fas fa-book',           // 编程基础书本
+                    datastructures: 'fas fa-project-diagram', // 数据结构图
+                    softwareengineering: 'fas fa-cog',     // 软件工程齿轮
+                    networking: 'fas fa-wifi',             // 网络编程WiFi
+                    operatingsystems: 'fas fa-desktop',    // 操作系统桌面
+                    compilers: 'fas fa-microchip',         // 编译原理芯片
+                    html: 'fas fa-file-code'               // HTML文件代码图标
                 };
-                return icons[category] || 'code';
+                return icons[category] || 'fas fa-code';
             }
 
             renderTerms(reset = false) {
@@ -1288,7 +1842,7 @@
                             <span class="code-title">
                                 <i class="fas fa-code"></i> 代码示例
                             </span>
-                            <button class="copy-btn" onclick="this.copyCode('${term.id}')">
+                            <button class="copy-btn" onclick="window.copyCode('${term.id}')">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
@@ -1417,20 +1971,23 @@
             }
 
             updateStats(total) {
-                document.getElementById('currentCount').textContent = this.terms.length;
-                document.getElementById('totalCount').textContent = total;
+                // 这些元素已被删除，不需要更新
+                // document.getElementById('currentCount').textContent = this.terms.length;
+                // document.getElementById('totalCount').textContent = total;
             }
 
             updateCurrentCategory() {
-                const categoryName = this.currentCategory === 'all' ? '全部' : 
-                    this.categories.find(c => c.id === this.currentCategory)?.displayName || this.currentCategory;
-                document.getElementById('currentCategory').textContent = categoryName;
+                // 这些元素已被删除，不需要更新
+                // const categoryName = this.currentCategory === 'all' ? '全部' :
+                //     this.categories.find(c => c.id === this.currentCategory)?.displayName || this.currentCategory;
+                // document.getElementById('currentCategory').textContent = categoryName;
             }
 
             updateCurrentDifficulty() {
-                const difficultyName = this.currentDifficulty === 'all' ? '全部' : 
-                    this.getDifficultyText(this.currentDifficulty);
-                document.getElementById('currentDifficulty').textContent = difficultyName;
+                // 这些元素已被删除，不需要更新
+                // const difficultyName = this.currentDifficulty === 'all' ? '全部' :
+                //     this.getDifficultyText(this.currentDifficulty);
+                // document.getElementById('currentDifficulty').textContent = difficultyName;
             }
 
             toggleEmptyState() {
@@ -1570,7 +2127,17 @@
 
         // 初始化应用
         document.addEventListener('DOMContentLoaded', () => {
-            new UltimateProgrammingDictionary();
+            window.programmingDictionary = new UltimateProgrammingDictionary();
+
+            // 延迟显示光斑，避免初始方块闪烁
+            setTimeout(() => {
+                const orbs = document.querySelectorAll('.orb');
+                orbs.forEach((orb, index) => {
+                    setTimeout(() => {
+                        orb.classList.add('loaded');
+                    }, index * 200); // 每个光斑延迟200ms显示
+                });
+            }, 500); // 页面加载后500ms开始显示
         });
 
         // 全局函数
